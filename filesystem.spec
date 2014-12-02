@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        3
+Release:        4
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -132,7 +132,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %dir %{_datadir}/doc/filesystem-3.0.14
 %dir %{_prefix}/games
 %dir %{_prefix}/include
-%dir %{_prefix}/lib
+%dir %{_prefix}/lib64
 %dir %{_prefix}/sbin
 %dir %{_prefix}/share
 %dir %{_prefix}/src
@@ -153,7 +153,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %{_localstatedir}/tmp
 /lib64
 /lib
-%{_prefix}/lib64
+%{_prefix}/lib
 /sbin
 
 %{_localstatedir}/lock
