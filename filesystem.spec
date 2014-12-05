@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        8
+Release:        9
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -21,7 +21,7 @@ Source14:       group
 Source15:       os-release
 Source16:       shadow
 Source17:       hosts
-Provides: /bin/sh
+Provides: /bin/sh  /bin/bash
 
 %description
 Base files for the system.
