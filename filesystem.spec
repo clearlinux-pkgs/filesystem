@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        7
+Release:        8
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -21,7 +21,7 @@ Source14:       group
 Source15:       os-release
 Source16:       shadow
 Source17:       hosts
-BuildArch:      noarch
+Provides: /bin/sh
 
 %description
 Base files for the system.
@@ -156,7 +156,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 /lib
 %{_prefix}/lib
 /sbin
-/usr//bin/sh
+/usr/bin/sh
 
 %{_localstatedir}/lock
 %{_sysconfdir}/issue
