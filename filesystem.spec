@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        9
+Release:        10
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -69,6 +69,15 @@ for d in \
  /media ; do
         install -m 0755 -d %{buildroot}$d
 done
+
+
+# dbus
+mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/session.d
+mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/system.d
+# systemd
+mkdir -p ${RPM_BUILD_ROOT}/var/empty
+mkdir -p ${RPM_BUILD_ROOT}/var/log/journal
+
 
 for d in /tmp %{_localstatedir}/tmp; do
         install -m 1777 -d %{buildroot}$d
