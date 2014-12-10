@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        12
+Release:        13
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -78,7 +78,7 @@ mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/system.d
 mkdir -p ${RPM_BUILD_ROOT}/var/empty
 mkdir -p ${RPM_BUILD_ROOT}/var/log/journal
 mkdir -p ${RPM_BUILD_ROOT}/var/run/dbus
-
+ln -s /usr/bin/agetty ${RPM_BUILD_ROOT}/usr/sbin/agetty
 
 for d in /tmp %{_localstatedir}/tmp; do
         install -m 1777 -d %{buildroot}$d
