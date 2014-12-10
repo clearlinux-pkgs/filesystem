@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        13
+Release:        14
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -186,3 +186,4 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/passwd
 %config(noreplace) %{_sysconfdir}/group
 %config(noreplace) %attr(0000,root,root) %{_sysconfdir}/shadow
+/usr/sbin/agetty
