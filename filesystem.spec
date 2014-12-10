@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        10
+Release:        11
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -105,7 +105,7 @@ ln -sfv usr/sbin %{buildroot}/sbin
 ln -sfv usr/lib64 %{buildroot}/lib
 ln -sf usr/lib64 %{buildroot}/lib64
 ln -sf lib64 %{buildroot}%{_prefix}/lib
-ln -sf usr/bin/bash  %{buildroot}/bin/sh
+#ln -sf usr/bin/bash  %{buildroot}/bin/sh
 
 install -m 0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/profile
 install -m 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/shells
@@ -165,7 +165,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 /lib
 %{_prefix}/lib
 /sbin
-/usr/bin/sh
+#/usr/bin/sh
 
 %{_localstatedir}/lock
 %{_sysconfdir}/issue
