@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        15
+Release:        16
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -54,7 +54,6 @@ for d in \
  /usr/games \
  /usr/include \
  /usr/lib64 \
- /usr/sbin \
  /usr/share \
  /usr/share/common-licenses \
  /usr/share/dict \
@@ -78,7 +77,6 @@ mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/system.d
 mkdir -p ${RPM_BUILD_ROOT}/var/empty
 mkdir -p ${RPM_BUILD_ROOT}/var/log/journal
 mkdir -p ${RPM_BUILD_ROOT}/var/run/dbus
-ln -s /usr/bin/agetty ${RPM_BUILD_ROOT}/usr/sbin/agetty
 
 for d in /tmp %{_localstatedir}/tmp; do
         install -m 1777 -d %{buildroot}$d
@@ -102,10 +100,11 @@ fi
 
 # usr migration
 ln -sfv usr/bin %{buildroot}/bin
-ln -sfv usr/sbin %{buildroot}/sbin
+ln -sfv usr/bin %{buildroot}/sbin
 ln -sfv usr/lib64 %{buildroot}/lib
 ln -sf usr/lib64 %{buildroot}/lib64
 ln -sf lib64 %{buildroot}%{_prefix}/lib
+ln -sf bin %{buildroot}%{_prefix}/sbin
 #ln -sf usr/bin/bash  %{buildroot}/bin/sh
 
 install -m 0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/profile
@@ -144,7 +143,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %dir %{_prefix}/games
 %dir %{_prefix}/include
 %dir %{_prefix}/lib64
-%dir %{_prefix}/sbin
 %dir %{_prefix}/share
 %dir %{_prefix}/src
 %dir %{_datadir}/common-licenses
@@ -166,6 +164,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 /lib
 %{_prefix}/lib
 /sbin
+%{_prefix}/sbin
 #/usr/bin/sh
 
 %{_localstatedir}/lock
@@ -186,4 +185,3 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/passwd
 %config(noreplace) %{_sysconfdir}/group
 %config(noreplace) %attr(0000,root,root) %{_sysconfdir}/shadow
-/usr/sbin/agetty
