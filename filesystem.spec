@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        18
+Release:        19
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -106,6 +106,8 @@ ln -sfv usr/lib64 %{buildroot}/lib64
 ln -sf usr/lib %{buildroot}/lib
 ln -sf bin %{buildroot}%{_prefix}/sbin
 #ln -sf usr/bin/bash  %{buildroot}/bin/sh
+
+ln -sf /usr/lib64/ld-linux-x86-64.so.2 %{buildroot}/usr/lib/ld-linux-x86-64.so.2
 
 install -m 0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/profile
 install -m 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/shells
