@@ -187,3 +187,5 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/passwd
 %config(noreplace) %{_sysconfdir}/group
 %config(noreplace) %attr(0000,root,root) %{_sysconfdir}/shadow
+
+/usr/lib/ld-linux-x86-64.so.2
