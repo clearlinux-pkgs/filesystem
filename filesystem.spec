@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        17
+Release:        18
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -54,6 +54,7 @@ for d in \
  /usr/games \
  /usr/include \
  /usr/lib64 \
+ /usr/lib \
  /usr/share \
  /usr/share/common-licenses \
  /usr/share/dict \
@@ -101,9 +102,8 @@ fi
 # usr migration
 ln -sfv usr/bin %{buildroot}/bin
 ln -sfv usr/bin %{buildroot}/sbin
-ln -sfv usr/lib64 %{buildroot}/lib
-ln -sf usr/lib64 %{buildroot}/lib64
-ln -sf lib64 %{buildroot}%{_prefix}/lib
+ln -sfv usr/lib64 %{buildroot}/lib64
+ln -sf usr/lib %{buildroot}/lib
 ln -sf bin %{buildroot}%{_prefix}/sbin
 #ln -sf usr/bin/bash  %{buildroot}/bin/sh
 
@@ -143,6 +143,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %dir %{_prefix}/games
 %dir %{_prefix}/include
 %dir %{_prefix}/lib64
+%dir %{_prefix}/lib
 %dir %{_prefix}/share
 %dir %{_prefix}/src
 %dir %{_datadir}/common-licenses
@@ -162,7 +163,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %{_localstatedir}/tmp
 /lib64
 /lib
-%{_prefix}/lib
 /sbin
 %{_prefix}/sbin
 #/usr/bin/sh
