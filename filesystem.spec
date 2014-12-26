@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        21
+Release:        22
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -148,8 +148,10 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %dir %{_prefix}/include
 %dir %{_prefix}/lib64
 %dir %{_prefix}/lib
+%dir %{_prefix}/lib/debug
 %dir %{_prefix}/share
 %dir %{_prefix}/src
+%dir %{_prefix}/src/debug
 %dir %{_datadir}/common-licenses
 %dir %{_datadir}/dict
 %dir %{_datadir}/info
