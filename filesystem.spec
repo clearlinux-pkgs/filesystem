@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        20
+Release:        21
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -55,6 +55,8 @@ for d in \
  /usr/include \
  /usr/lib64 \
  /usr/lib \
+ /usr/lib/debug \
+ /usr/src/debug \
  /usr/share \
  /usr/share/common-licenses \
  /usr/share/dict \
