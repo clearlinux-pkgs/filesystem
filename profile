@@ -3,7 +3,7 @@
 
 PATH="/usr/local/bin:/usr/bin:"
 EDITOR="/bin/vi"			# needed for packages like cron
-test -z "$TERM" && TERM="vt100"	# Basic terminal capab. For screen etc.
+test -z "$TERM" && TERM="xterm"	# Basic terminal capab. For screen etc.
 
 if [ ! -e /etc/localtime ]; then
 	TZ="UTC"		# Time Zone. Look at http://theory.uwinnipeg.ca/gnu/glibc/libc_303.html 
