@@ -19,7 +19,7 @@ if [ "$PS1" ]; then
    PS1='\u@\h:\w\$ '
 fi
 
-CFLAGS="-O2 -g2 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -falign-functions=32 -Wno-error -m64 -march=core2 -msse4.2  -mtune=corei7-avx  -mfpmath=sse -fasynchronous-unwind-tables -fno-omit-frame-pointer -O2 -fipa-cp-clone -ftree-vectorize  -Wp,-D_REENTRANT -ftree-loop-distribute-patterns  -Wl,-dynamic-linker=/usr/lib64/ld-linux-x86-64.so.2 Wl,-z -Wl,now -Wl,-z -Wl,relro"
+CFLAGS="-O2 -g2 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -falign-functions=32 -Wno-error -m64 -march=core2 -msse4.2  -mtune=corei7-avx  -mfpmath=sse -fasynchronous-unwind-tables -fno-omit-frame-pointer -O2 -fipa-cp-clone -ftree-vectorize  -Wp,-D_REENTRANT -ftree-loop-distribute-patterns  -Wl,-dynamic-linker=/usr/lib64/ld-linux-x86-64.so.2 -Wl,-z -Wl,now -Wl,-z -Wl,relro"
 CXXFLAGS="$CFLAGS"
 if [ -d /etc/profile.d ]; then
   for i in /etc/profile.d/* ; do
