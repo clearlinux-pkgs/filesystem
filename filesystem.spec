@@ -109,8 +109,6 @@ ln -sf usr/lib %{buildroot}/lib
 ln -sf bin %{buildroot}%{_prefix}/sbin
 #ln -sf usr/bin/bash  %{buildroot}/bin/sh
 
-ln -sf /usr/lib64/ld-linux-x86-64.so.2 %{buildroot}/usr/lib/ld-linux-x86-64.so.2
-
 install -m 0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/profile
 install -m 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/shells
 install -m 0755 %{SOURCE12} %{buildroot}%{_sysconfdir}/skel/.profile
@@ -192,4 +190,3 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/group
 %config(noreplace) %attr(0000,root,root) %{_sysconfdir}/shadow
 
-/usr/lib/ld-linux-x86-64.so.2
