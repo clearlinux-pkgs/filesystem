@@ -1,7 +1,7 @@
 # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
 
-PATH="/usr/local/bin:/usr/bin:"
+PATH="/usr/local/bin:/usr/bin"
 EDITOR="/bin/vi"			# needed for packages like cron
 test -z "$TERM" && TERM="xterm"	# Basic terminal capab. For screen etc.
 
