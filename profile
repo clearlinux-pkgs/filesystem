@@ -11,9 +11,6 @@ if [ ! -e /etc/localtime ]; then
 	export TZ
 fi
 
-if [ "$HOME" = "/root" ]; then
-   PATH=$PATH:/usr/local/sbin:/usr/sbin
-fi
 if [ "$PS1" ]; then
 # works for bash and ash (no other shells known to be in use here)
    PS1='\u@\h:\w\$ '
