@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        33
+Release:        34
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -94,7 +94,7 @@ echo "clr" > %{buildroot}%{_sysconfdir}/hostname
 # Issue files
 install -m 644 %{SOURCE9} %{SOURCE10} %{buildroot}%{_sysconfdir}
 # os-release
-install -m 644 %{SOURCE15} %{buildroot}%{_sysconfdir}
+install -m 644 %{SOURCE15} %{buildroot}%{_prefix}/lib
 
 rotation=`cat %{SOURCE0}`
 if [ "$rotation" != "0" ]; then
@@ -173,7 +173,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 
 %{_localstatedir}/lock
 %{_sysconfdir}/issue
-%{_sysconfdir}/os-release
+%{_prefix}/lib/os-release
 %config %{_sysconfdir}/hostname
 %{_sysconfdir}/inputrc
 %{_sysconfdir}/motd
