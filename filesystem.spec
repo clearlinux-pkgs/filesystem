@@ -126,7 +126,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %dir /boot
 %dir /dev
 %dir %{_sysconfdir}
-%dir %{_sysconfdir}/skel
 %dir /mnt
 %dir /home
 %dir /proc
