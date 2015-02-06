@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        35
+Release:        36
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -91,6 +91,7 @@ ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
 install -m 644 %{SOURCE9} %{SOURCE10} %{buildroot}%{_sysconfdir}
 # os-release
 install -m 644 %{SOURCE15} %{buildroot}%{_prefix}/lib
+install -m 644 %{SOURCE15} %{buildroot}%{_sysconfdir}
 
 rotation=`cat %{SOURCE0}`
 if [ "$rotation" != "0" ]; then
@@ -167,6 +168,7 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 
 %{_localstatedir}/lock
 %{_sysconfdir}/issue
+%{_sysconfdir}/os-release
 %{_prefix}/lib/os-release
 %{_sysconfdir}/inputrc
 %{_sysconfdir}/motd
@@ -181,4 +183,3 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/passwd
 %config(noreplace) %{_sysconfdir}/group
 %config(noreplace) %attr(0000,root,root) %{_sysconfdir}/shadow
-
