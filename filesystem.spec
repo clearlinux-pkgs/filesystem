@@ -40,7 +40,6 @@ for d in \
  /boot \
  /dev \
  %{_sysconfdir} \
- %{_sysconfdir}/default \
  %{_sysconfdir}/skel \
  /mnt \
  /home \
@@ -127,7 +126,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %dir /boot
 %dir /dev
 %dir %{_sysconfdir}
-%dir %{_sysconfdir}/default
 %dir %{_sysconfdir}/skel
 %dir /mnt
 %dir /home
