@@ -88,9 +88,6 @@ done
 # ln -snf ../run %{buildroot}%{_localstatedir}/run
 ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
 
-# Hostname
-echo "clr" > %{buildroot}%{_sysconfdir}/hostname
-
 # Issue files
 install -m 644 %{SOURCE9} %{SOURCE10} %{buildroot}%{_sysconfdir}
 # os-release
@@ -174,7 +171,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %{_localstatedir}/lock
 %{_sysconfdir}/issue
 %{_prefix}/lib/os-release
-%config %{_sysconfdir}/hostname
 %{_sysconfdir}/inputrc
 %{_sysconfdir}/motd
 %{_sysconfdir}/mtab
