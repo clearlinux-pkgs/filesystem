@@ -9,7 +9,6 @@ Source0:        rotation
 Source1:        nsswitch.conf
 Source2:        motd
 Source3:        inputrc
-Source4:        host.conf
 Source5:        profile
 Source6:        shells
 Source9:        issue.net
@@ -111,7 +110,6 @@ install -m 0755 %{SOURCE12} %{buildroot}%{_datadir}/defaults/skel/.profile
 install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
 install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/inputrc
 install -m 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/nsswitch.conf
-install -m 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/host.conf
 install -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/motd
 
 install -m 0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/passwd
@@ -173,7 +171,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/profile
 %{_sysconfdir}/nsswitch.conf
-%{_sysconfdir}/host.conf
 %config %{_sysconfdir}/shells
 %{_sysconfdir}/issue.net
 %{_datadir}/defaults
