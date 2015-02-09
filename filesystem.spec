@@ -117,8 +117,6 @@ install -m 0644 %{SOURCE14} %{buildroot}%{_sysconfdir}/group
 
 install %{SOURCE16} %{buildroot}%{_sysconfdir}/shadow
 
-ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
-
 %files
 %dir /boot
 %dir /dev
@@ -168,7 +166,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %{_prefix}/lib/os-release
 %{_sysconfdir}/inputrc
 %{_sysconfdir}/motd
-%{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/profile
 %{_sysconfdir}/nsswitch.conf
 %config %{_sysconfdir}/shells
