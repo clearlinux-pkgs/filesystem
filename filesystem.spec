@@ -7,7 +7,6 @@ Url:            https://01.org/
 Group:          base
 Source0:        rotation
 Source1:        nsswitch.conf
-Source2:        motd
 Source3:        inputrc
 Source5:        profile
 Source6:        shells
@@ -110,7 +109,6 @@ install -m 0755 %{SOURCE12} %{buildroot}%{_datadir}/defaults/skel/.profile
 install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
 install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/inputrc
 install -m 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/nsswitch.conf
-install -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/motd
 
 install -m 0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/passwd
 install -m 0644 %{SOURCE14} %{buildroot}%{_sysconfdir}/group
@@ -165,7 +163,6 @@ install %{SOURCE16} %{buildroot}%{_sysconfdir}/shadow
 %{_sysconfdir}/os-release
 %{_prefix}/lib/os-release
 %{_sysconfdir}/inputrc
-%{_sysconfdir}/motd
 %config(noreplace) %{_sysconfdir}/profile
 %{_sysconfdir}/nsswitch.conf
 %config %{_sysconfdir}/shells
