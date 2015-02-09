@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        36
+Release:        37
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -20,7 +20,6 @@ Source13:       passwd
 Source14:       group
 Source15:       os-release
 Source16:       shadow
-Source17:       hosts
 Provides: /bin/sh  /bin/bash
 
 %description
@@ -113,7 +112,6 @@ install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
 install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/inputrc
 install -m 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/nsswitch.conf
 install -m 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/host.conf
-install -m 0644 %{SOURCE17} %{buildroot}%{_sysconfdir}/hosts
 install -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/motd
 
 install -m 0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/passwd
@@ -176,7 +174,6 @@ ln -sf /proc/mounts %{buildroot}%{_sysconfdir}/mtab
 %config(noreplace) %{_sysconfdir}/profile
 %{_sysconfdir}/nsswitch.conf
 %{_sysconfdir}/host.conf
-%{_sysconfdir}/hosts
 %config %{_sysconfdir}/shells
 %{_sysconfdir}/issue.net
 %{_datadir}/defaults
