@@ -5,7 +5,6 @@ License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
 Group:          base
-Source0:        rotation
 Source1:        nsswitch.conf
 Source3:        inputrc
 Source5:        profile
@@ -89,11 +88,6 @@ install -m 644 %{SOURCE9} %{SOURCE10} %{buildroot}%{_sysconfdir}
 # os-release
 install -m 644 %{SOURCE15} %{buildroot}%{_prefix}/lib
 install -m 644 %{SOURCE15} %{buildroot}%{_sysconfdir}
-
-rotation=`cat %{SOURCE0}`
-if [ "$rotation" != "0" ]; then
-        install -m 0644 rotation %{buildroot}%{_sysconfdir}/rotation
-fi
 
 # usr migration
 ln -sfv usr/bin %{buildroot}/bin
