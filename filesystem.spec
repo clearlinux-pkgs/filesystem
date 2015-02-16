@@ -75,6 +75,7 @@ mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/system.d
 mkdir -p ${RPM_BUILD_ROOT}/var/empty
 mkdir -p ${RPM_BUILD_ROOT}/var/log/journal
 mkdir -p ${RPM_BUILD_ROOT}/var/run/dbus
+mkdir -p  ${RPM_BUILD_ROOT}/usr/share/defaults/etc
 
 for d in /tmp %{_localstatedir}/tmp; do
         install -m 1777 -d %{buildroot}$d
@@ -97,7 +98,7 @@ ln -sf usr/lib %{buildroot}/lib
 ln -sf bin %{buildroot}%{_prefix}/sbin
 #ln -sf usr/bin/bash  %{buildroot}/bin/sh
 
-install -m 0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/profile
+install -m 0644 %{SOURCE5} %{buildroot}/usr/share/defaults/etc/profile
 install -m 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/shells
 install -m 0755 %{SOURCE12} %{buildroot}%{_datadir}/defaults/skel/.profile
 install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
@@ -157,7 +158,7 @@ install %{SOURCE16} %{buildroot}%{_sysconfdir}/shadow
 %{_sysconfdir}/os-release
 %{_prefix}/lib/os-release
 %{_sysconfdir}/inputrc
-%config(noreplace) %{_sysconfdir}/profile
+/usr/share/defaults/etc/profile
 %{_sysconfdir}/nsswitch.conf
 %config %{_sysconfdir}/shells
 %{_sysconfdir}/issue.net
