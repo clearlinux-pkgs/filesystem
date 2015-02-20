@@ -58,6 +58,7 @@ for d in \
  /usr/share/info \
  /usr/share/man \
  /usr/share/misc \
+ /var/log/journal \
  /usr/src \
  %{_localstatedir} \
  %{_localstatedir}/lib \
@@ -142,8 +143,9 @@ install %{SOURCE16} %{buildroot}%{_sysconfdir}/shadow
 %dir %{_localstatedir}/lib
 %dir %{_localstatedir}/log
 %dir %{_localstatedir}/spool
-%dir /media
+%dir /var/log/journal
 
+%dir /media
 # symlinks...
 /bin
 %{_localstatedir}/tmp
