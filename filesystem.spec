@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        41
+Release:        42
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -21,6 +21,12 @@ Provides: /bin/sh  /bin/bash
 
 %description
 Base files for the system.
+
+%package chroot
+Summary: Chroot support for additional filesystem-like setup.
+
+%description chroot
+Chroot support for additional filesystem-like setup.
 
 %prep
 
@@ -110,6 +116,20 @@ install -m 0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/passwd
 install -m 0644 %{SOURCE14} %{buildroot}%{_sysconfdir}/group
 
 install %{SOURCE16} %{buildroot}%{_sysconfdir}/shadow
+
+%post chroot
+# This is mostly mock-chroot support
+# Ideally mock should be setting this up
+if [ ! -f /etc/machine-id ] && [ -f /var/lib/dbus/machine-id ]
+then
+    cp /var/lib/dbus/machine-id /etc/machine-id
+fi
+# systemd-testsuite uses uid 1 ("bin")
+getent group bin >/dev/null || groupadd -r -g 1 bin
+getent passwd bin >/dev/null || \
+    useradd -r -g bin -s /sbin/nologin -u 1 bin
+
+%files chroot
 
 %files
 %dir /boot
