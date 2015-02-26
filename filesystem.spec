@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        44
+Release:        45
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -95,7 +95,6 @@ ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
 install -m 644 %{SOURCE9} %{SOURCE10} %{buildroot}%{_sysconfdir}
 # os-release
 install -m 644 %{SOURCE15} %{buildroot}%{_prefix}/lib
-install -m 644 %{SOURCE15} %{buildroot}%{_sysconfdir}
 
 # usr migration
 ln -sfv usr/bin %{buildroot}/bin
@@ -177,7 +176,6 @@ getent passwd bin >/dev/null || \
 
 %{_localstatedir}/lock
 %{_sysconfdir}/issue
-%{_sysconfdir}/os-release
 %{_prefix}/lib/os-release
 %{_sysconfdir}/inputrc
 /usr/share/defaults/etc/profile
