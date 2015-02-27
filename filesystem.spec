@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        46
+Release:        47
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -13,7 +13,10 @@ Source9:        issue.net
 Source10:       issue
 Source11:       dot.bashrc
 Source12:       dot.profile
+Source13:       passwd
+Source14:       group
 Source15:       os-release
+Source16:       shadow
 Provides: /bin/sh  /bin/bash
 
 %description
@@ -108,6 +111,11 @@ install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
 install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/inputrc
 install -m 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/nsswitch.conf
 
+install -m 0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/passwd
+install -m 0644 %{SOURCE14} %{buildroot}%{_sysconfdir}/group
+
+install %{SOURCE16} %{buildroot}%{_sysconfdir}/shadow
+
 %post chroot
 # This is mostly mock-chroot support
 # Ideally mock should be setting this up
@@ -175,3 +183,6 @@ getent passwd bin >/dev/null || \
 %config %{_sysconfdir}/shells
 %{_sysconfdir}/issue.net
 %{_datadir}/defaults
+%config(noreplace) %{_sysconfdir}/passwd
+%config(noreplace) %{_sysconfdir}/group
+%config(noreplace) %attr(0000,root,root) %{_sysconfdir}/shadow
