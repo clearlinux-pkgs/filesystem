@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        49
+Release:        50
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -8,7 +8,6 @@ Group:          base
 Source1:        nsswitch.conf
 Source3:        inputrc
 Source5:        profile
-Source6:        shells
 Source9:        issue.net
 Source10:       issue
 Source11:       dot.bashrc
@@ -102,7 +101,6 @@ ln -sf bin %{buildroot}%{_prefix}/sbin
 #ln -sf usr/bin/bash  %{buildroot}/bin/sh
 
 install -m 0644 %{SOURCE5} %{buildroot}/usr/share/defaults/etc/profile
-install -m 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/shells
 install -m 0755 %{SOURCE12} %{buildroot}%{_datadir}/defaults/skel/.profile
 install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
 install -m 0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/inputrc
@@ -172,6 +170,5 @@ getent passwd bin >/dev/null || \
 %{_sysconfdir}/inputrc
 /usr/share/defaults/etc/profile
 %{_sysconfdir}/nsswitch.conf
-%config %{_sysconfdir}/shells
 %{_sysconfdir}/issue.net
 %{_datadir}/defaults
