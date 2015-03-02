@@ -7,8 +7,6 @@ Url:            https://01.org/
 Group:          base
 Source1:        nsswitch.conf
 Source5:        profile
-Source9:        issue.net
-Source10:       issue
 Source11:       dot.bashrc
 Source12:       dot.profile
 Source15:       os-release
@@ -86,8 +84,6 @@ done
 # ln -snf ../run %{buildroot}%{_localstatedir}/run
 ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
 
-# Issue files
-install -m 644 %{SOURCE9} %{SOURCE10} %{buildroot}%{_sysconfdir}
 # os-release
 install -m 644 %{SOURCE15} %{buildroot}%{_prefix}/lib
 
@@ -163,9 +159,7 @@ getent passwd bin >/dev/null || \
 #/usr/bin/sh
 
 %{_localstatedir}/lock
-%{_sysconfdir}/issue
 %{_prefix}/lib/os-release
 /usr/share/defaults/etc/profile
 %{_sysconfdir}/nsswitch.conf
-%{_sysconfdir}/issue.net
 %{_datadir}/defaults
