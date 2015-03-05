@@ -1,11 +1,10 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        51
+Release:        52
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
 Group:          base
-Source1:        nsswitch.conf
 Source5:        profile
 Source11:       dot.bashrc
 Source12:       dot.profile
@@ -98,7 +97,6 @@ ln -sf bin %{buildroot}%{_prefix}/sbin
 install -m 0644 %{SOURCE5} %{buildroot}/usr/share/defaults/etc/profile
 install -m 0755 %{SOURCE12} %{buildroot}%{_datadir}/defaults/skel/.profile
 install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
-install -m 0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/nsswitch.conf
 
 %post chroot
 # This is mostly mock-chroot support
@@ -161,5 +159,4 @@ getent passwd bin >/dev/null || \
 %{_localstatedir}/lock
 %{_prefix}/lib/os-release
 /usr/share/defaults/etc/profile
-%{_sysconfdir}/nsswitch.conf
 %{_datadir}/defaults
