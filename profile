@@ -30,7 +30,7 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
-export PATH PS1 OPIEDIR QPEDIR QTDIR EDITOR TERM CFLAGS CXXFLAGS
+export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS
 
 umask 022
 
