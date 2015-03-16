@@ -1,14 +1,15 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        56
+Release:        57
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
 Group:          base
-Source5:        profile
-Source11:       dot.bashrc
-Source12:       dot.profile
-Source15:       os-release
+Source1:        nsswitch.conf
+Source2:        profile
+Source3:        dot.bashrc
+Source4:        dot.profile
+Source5:        os-release
 Provides: /bin/sh  /bin/bash
 
 %description
@@ -83,9 +84,6 @@ done
 # ln -snf ../run %{buildroot}%{_localstatedir}/run
 ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
 
-# os-release
-install -m 644 %{SOURCE15} %{buildroot}%{_prefix}/lib
-
 # usr migration
 ln -sfv usr/bin %{buildroot}/bin
 ln -sfv usr/bin %{buildroot}/sbin
@@ -94,9 +92,14 @@ ln -sf usr/lib %{buildroot}/lib
 ln -sf bin %{buildroot}%{_prefix}/sbin
 #ln -sf usr/bin/bash  %{buildroot}/bin/sh
 
-install -m 0644 %{SOURCE5} %{buildroot}/usr/share/defaults/etc/profile
-install -m 0755 %{SOURCE12} %{buildroot}%{_datadir}/defaults/skel/.profile
-install -m 0755 %{SOURCE11} %{buildroot}%{_datadir}/defaults/skel/.bashrc
+install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/defaults/etc/nsswitch.conf
+install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/defaults/etc/profile
+install -m 0755 %{SOURCE3} %{buildroot}%{_datadir}/defaults/skel/.bashrc
+install -m 0755 %{SOURCE4} %{buildroot}%{_datadir}/defaults/skel/.profile
+# os-release
+install -m 644 %{SOURCE5} %{buildroot}%{_prefix}/lib
+
+
 
 %post chroot
 # This is mostly mock-chroot support
@@ -105,10 +108,6 @@ if [ ! -f /etc/machine-id ] && [ -f /var/lib/dbus/machine-id ]
 then
     cp /var/lib/dbus/machine-id /etc/machine-id
 fi
-# systemd-testsuite uses uid 1 ("bin")
-getent group bin >/dev/null || groupadd -r -g 1 bin
-getent passwd bin >/dev/null || \
-    useradd -r -g bin -s /sbin/nologin -u 1 bin
 
 %files chroot
 
@@ -158,5 +157,4 @@ getent passwd bin >/dev/null || \
 
 %{_localstatedir}/lock
 %{_prefix}/lib/os-release
-/usr/share/defaults/etc/profile
 %{_datadir}/defaults
