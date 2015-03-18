@@ -74,6 +74,7 @@ mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/system.d
 # systemd
 mkdir -p ${RPM_BUILD_ROOT}/var/empty
 mkdir -p ${RPM_BUILD_ROOT}/var/log/journal
+mkdir -p ${RPM_BUILD_ROOT}/var/cache/ldconfig
 mkdir -p ${RPM_BUILD_ROOT}/var/run/dbus
 mkdir -p  ${RPM_BUILD_ROOT}/usr/share/defaults/etc
 
@@ -144,6 +145,7 @@ fi
 %dir %{_localstatedir}/log
 %dir %{_localstatedir}/spool
 %dir /var/log/journal
+%dir /var/cache/ldconfig
 
 %dir /media
 # symlinks...
