@@ -68,21 +68,17 @@ for d in \
 done
 
 
-# dbus
-mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/session.d
-mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/system.d
 # systemd
 mkdir -p ${RPM_BUILD_ROOT}/var/empty
 mkdir -p ${RPM_BUILD_ROOT}/var/log/journal
 mkdir -p ${RPM_BUILD_ROOT}/var/cache/ldconfig
-mkdir -p ${RPM_BUILD_ROOT}/var/run/dbus
 mkdir -p  ${RPM_BUILD_ROOT}/usr/share/defaults/etc
 
 for d in /tmp %{_localstatedir}/tmp; do
         install -m 1777 -d %{buildroot}$d
 done
 
-# ln -snf ../run %{buildroot}%{_localstatedir}/run
+ln -snf ../run %{buildroot}%{_localstatedir}/run
 ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
 
 # usr migration
@@ -150,7 +146,6 @@ fi
 %dir /media
 # symlinks...
 /bin
-%{_localstatedir}/tmp
 /lib64
 /lib
 /sbin
@@ -158,5 +153,6 @@ fi
 #/usr/bin/sh
 
 %{_localstatedir}/lock
+%{_localstatedir}/run
 %{_prefix}/lib/os-release
 %{_datadir}/defaults
