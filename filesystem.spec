@@ -78,8 +78,8 @@ for d in /tmp %{_localstatedir}/tmp; do
         install -m 1777 -d %{buildroot}$d
 done
 
-#ln -snf ../run %{buildroot}%{_localstatedir}/run
-#ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
+ln -snf ../run %{buildroot}%{_localstatedir}/run
+ln -snf ../run/lock %{buildroot}%{_localstatedir}/lock
 
 # usr migration
 ln -sfv usr/bin %{buildroot}/bin
@@ -152,7 +152,7 @@ fi
 %{_prefix}/sbin
 #/usr/bin/sh
 
-#%{_localstatedir}/lock
-#%{_localstatedir}/run
+%{_localstatedir}/lock
+%{_localstatedir}/run
 %{_prefix}/lib/os-release
 %{_datadir}/defaults
