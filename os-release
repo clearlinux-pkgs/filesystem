@@ -1,7 +1,7 @@
 NAME="Clear Linux Software for Intel Architecture"
-VERSION=1.0
+VERSION=10
 ID=clear-linux-os
-VERSION_ID=1.0
+VERSION_ID=10
 PRETTY_NAME="Clear Linux Software for Intel Architecture"
 ANSI_COLOR="1;35"
 HOME_URL="https://clearlinux.org"
