@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        67
+Release:        68
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -64,6 +64,7 @@ for d in \
  %{_localstatedir} \
  %{_localstatedir}/lib \
  %{_localstatedir}/log \
+ %{_localstatedir}/cache \
  %{_localstatedir}/spool \
  /media ; do
         install -m 0755 -d %{buildroot}$d
@@ -76,7 +77,6 @@ mkdir -p ${RPM_BUILD_ROOT}/etc/dbus-1/system.d
 # systemd
 mkdir -p ${RPM_BUILD_ROOT}/var/empty
 mkdir -p ${RPM_BUILD_ROOT}/var/log/journal
-mkdir -p ${RPM_BUILD_ROOT}/var/cache/ldconfig
 mkdir -p ${RPM_BUILD_ROOT}/var/run/dbus
 mkdir -p  ${RPM_BUILD_ROOT}/usr/share/defaults/etc
 
@@ -146,9 +146,9 @@ fi
 %dir %{_localstatedir}/tmp
 %dir %{_localstatedir}/lib
 %dir %{_localstatedir}/log
+%dir %{_localstatedir}/cache
 %dir %{_localstatedir}/spool
 %dir /var/log/journal
-%dir /var/cache/ldconfig
 
 %dir /media
 # symlinks...
