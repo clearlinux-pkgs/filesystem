@@ -11,7 +11,7 @@ Source3:        dot.bashrc
 Source4:        dot.profile
 Source5:        os-release
 Source6:        50-prompt.sh
-Source7:        50-dircolors.sh
+Source7:        50-colors.sh
 Provides: /bin/sh  /bin/bash
 
 %description
@@ -103,7 +103,7 @@ install -m 0755 %{SOURCE4} %{buildroot}%{_datadir}/defaults/skel/.profile
 install -m 644 %{SOURCE5} %{buildroot}%{_prefix}/lib
 
 install -m 644 -D %{SOURCE6} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-prompt.sh
-install -m 644 -D %{SOURCE7} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-dircolors.sh
+install -m 644 -D %{SOURCE7} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-colors.sh
 
 %post chroot
 # This is mostly mock-chroot support
