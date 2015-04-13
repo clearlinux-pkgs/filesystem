@@ -30,7 +30,8 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
-export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS
+XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
+export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS XDG_CONFIG_DIRS
 
 umask 022
 
