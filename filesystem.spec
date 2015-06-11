@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        75
+Release:        76
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -45,8 +45,8 @@ rm -f %{buildroot}%{_localstatedir}/run
 mkdir -p %{buildroot}/usr/share/defaults/etc
 install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/defaults/etc/nsswitch.conf
 install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/defaults/etc/profile
-install -m 0755 %{SOURCE3} %{buildroot}%{_datadir}/defaults/skel/.bashrc
-install -m 0755 %{SOURCE4} %{buildroot}%{_datadir}/defaults/skel/.profile
+install -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/defaults/skel/.bashrc
+install -m 0644 %{SOURCE4} %{buildroot}%{_datadir}/defaults/skel/.profile
 # os-release
 install -m 644 %{SOURCE5} %{buildroot}%{_prefix}/lib
 
