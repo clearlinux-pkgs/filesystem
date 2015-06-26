@@ -13,6 +13,7 @@ Source4:        dot.profile
 Source5:        os-release
 Source6:        50-prompt.sh
 Source7:        50-colors.sh
+Source8:        inputrc
 Provides: /bin/sh  /bin/bash
 BuildRequires: /usr/bin/systemd-tmpfiles
 
@@ -52,6 +53,9 @@ install -m 644 %{SOURCE5} %{buildroot}%{_prefix}/lib
 
 install -m 644 -D %{SOURCE6} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-prompt.sh
 install -m 644 -D %{SOURCE7} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-colors.sh
+
+# inputrc
+install -m 0644 %{SOURCE8} %{buildroot}%{_datadir}/defaults/etc/inputrc
 
 %post chroot
 # This is mostly mock-chroot support
