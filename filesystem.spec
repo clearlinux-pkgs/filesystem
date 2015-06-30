@@ -16,6 +16,7 @@ Source7:        50-colors.sh
 Source8:        inputrc
 Provides: /bin/bash
 Provides: /bin/sh
+Provides: /bin/zsh
 BuildRequires: /usr/bin/systemd-tmpfiles
 
 %description
