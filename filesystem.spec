@@ -14,7 +14,8 @@ Source5:        os-release
 Source6:        50-prompt.sh
 Source7:        50-colors.sh
 Source8:        inputrc
-Provides: /bin/sh  /bin/bash
+Provides: /bin/bash
+Provides: /bin/sh
 BuildRequires: /usr/bin/systemd-tmpfiles
 
 %description
