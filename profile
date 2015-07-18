@@ -16,6 +16,7 @@ if [ "$PS1" ]; then
    PS1='\u@\h:\w\$ '
 fi
 
+PYTHONOPTIMIZE="1"
 CFLAGS="-O3 -g2 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -m64 -march=ivybridge  -mtune=native -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi"
 CXXFLAGS="$CFLAGS"
 if [ -d /usr/share/defaults/etc/profile.d ]; then
@@ -31,7 +32,7 @@ if [ -d /etc/profile.d ]; then
   unset i
 fi
 XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
-export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS XDG_CONFIG_DIRS
+export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS XDG_CONFIG_DIRS PYTHONOPTIMIZE
 
 umask 022
 
