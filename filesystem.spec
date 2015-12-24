@@ -119,3 +119,6 @@ fi
 %{_prefix}/lib/os-release
 %{_prefix}/lib/tmpfiles.d/filesystem.conf
 %{_datadir}/defaults
+%ifarch i386
+/usr/lib/ld-linux.so.2
+%endif
