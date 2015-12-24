@@ -7,13 +7,14 @@ Url:            https://01.org/
 Group:          base
 Source0:        filesystem.conf
 Source1:        nsswitch.conf
-Source2:        profile
+Source2:        profile.x86_64
 Source3:        dot.bashrc
 Source4:        dot.profile
 Source5:        os-release
 Source6:        50-prompt.sh
 Source7:        50-colors.sh
 Source8:        inputrc
+Source9:	profile.i386
 Provides: /bin/bash
 Provides: /bin/sh
 Provides: /bin/zsh
@@ -48,7 +49,12 @@ rm -f %{buildroot}%{_localstatedir}/run
 
 mkdir -p %{buildroot}/usr/share/defaults/etc
 install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/defaults/etc/nsswitch.conf
+%ifarch i386
+install -m 0644 %{SOURCE9} %{buildroot}%{_datadir}/defaults/etc/profile
+ln -s /usr/lib64/ld-2.22.so %{buildroot}/usr/lib/ld-linux.so.2
+%else
 install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/defaults/etc/profile
+%endif
 install -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/defaults/skel/.bashrc
 install -m 0644 %{SOURCE4} %{buildroot}%{_datadir}/defaults/skel/.profile
 # os-release
