@@ -56,6 +56,7 @@ ln -s /usr/lib64/ld-2.22.so %{buildroot}/usr/lib/ld-linux.so.2
 install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/defaults/etc/profile
 %endif
 install -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/defaults/skel/.bashrc
+install -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/defaults/etc/bash.bashrc
 install -m 0644 %{SOURCE4} %{buildroot}%{_datadir}/defaults/skel/.profile
 # os-release
 install -m 644 %{SOURCE5} %{buildroot}%{_prefix}/lib
