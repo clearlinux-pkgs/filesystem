@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        95
+Release:        96
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -42,7 +42,11 @@ chmod g-s %{buildroot}
 %install
 mkdir -p %{buildroot}/usr/lib/tmpfiles.d
 install -m 0644 %{SOURCE0} %{buildroot}/usr/lib/tmpfiles.d/filesystem.conf
-systemd-tmpfiles --create --root %{buildroot} %{buildroot}/usr/lib/tmpfiles.d/filesystem.conf
+while read T P A U G D L; do \
+	[[ $T == "v" ]] && mkdir -p %{buildroot}$P; \
+	[[ $T == "d" ]] && mkdir -p %{buildroot}$P; \
+	[[ $T == "L" ]] && ln -sf $L %{buildroot}$P; \
+done < %{buildroot}/usr/lib/tmpfiles.d/filesystem.conf
 
 # See coreutils %post, host yum puts a pid file there.
 rm -f %{buildroot}%{_localstatedir}/run
