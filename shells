@@ -1,0 +1,10 @@
+/bin/sh
+/bin/bash
+/sbin/nologin
+/usr/bin/sh
+/usr/bin/bash
+/usr/sbin/nologin
+/usr/bin/zsh
+/bin/zsh
+/usr/bin/tmux
+/bin/tmux

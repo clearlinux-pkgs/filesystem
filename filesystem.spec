@@ -14,7 +14,8 @@ Source5:        os-release
 Source6:        50-prompt.sh
 Source7:        50-colors.sh
 Source8:        inputrc
-Source9:	profile.i386
+Source9:        profile.i386
+Source10:       shells
 Provides: /bin/bash
 Provides: /bin/sh
 Provides: /bin/zsh
@@ -70,6 +71,9 @@ install -m 644 -D %{SOURCE7} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-c
 
 # inputrc
 install -m 0644 %{SOURCE8} %{buildroot}%{_datadir}/defaults/etc/inputrc
+
+# required for chsh/pam
+install -m 00644 %{SOURCE10} %{buildroot}%{_datadir}/defaults/etc/shells
 
 %post chroot
 # This is mostly mock-chroot support
