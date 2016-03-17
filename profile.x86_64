@@ -33,6 +33,10 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
+for langfile in /etc/locale.conf "$HOME/.i18n" ; do
+	[ -f $langfile ] && . $langfile 
+done
+
 XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
 export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS XDG_CONFIG_DIRS
 
