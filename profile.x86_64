@@ -17,6 +17,8 @@ if [ "$PS1" ]; then
 fi
 
 CFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -m64 -march=westmere  -mtune=native -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi -fno-semantic-interposition "
+FFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wl,--copy-dt-needed-entries -m64 -march=westmere  -mtune=native -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi -fno-semantic-interposition "
+CFFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wl,--copy-dt-needed-entries -m64 -march=westmere  -mtune=native -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi -fno-semantic-interposition "
 CXXFLAGS="$CFLAGS"
 export GOMP_SPINCOUNT=10000
 
@@ -38,7 +40,7 @@ for langfile in /etc/locale.conf "$HOME/.i18n" ; do
 done
 
 XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
-export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS XDG_CONFIG_DIRS
+export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS CFFLAGS FFLAGS XDG_CONFIG_DIRS
 
 umask 022
 
