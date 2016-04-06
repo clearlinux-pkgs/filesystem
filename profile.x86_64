@@ -21,6 +21,8 @@ FFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE
 CFFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wl,--copy-dt-needed-entries -m64 -march=westmere  -mtune=native -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi -fno-semantic-interposition "
 CXXFLAGS="$CFLAGS"
 export GOMP_SPINCOUNT=10000
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
 
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
