@@ -37,6 +37,9 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
+if [ -e /etc/profile ]; then
+    . /etc/profile
+fi
 for langfile in /etc/locale.conf "$HOME/.i18n" ; do
 	[ -f $langfile ] && . $langfile 
 done
