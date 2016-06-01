@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        110
+Release:        111
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -21,6 +21,50 @@ Provides: /bin/sh
 Provides: /bin/zsh
 Provides: /bin/ksh
 BuildRequires: /usr/bin/systemd-tmpfiles
+
+
+###
+### these are the default buildroot deps 
+###
+BuildRequires : autoconf
+BuildRequires : automake
+BuildRequires : automake-dev
+BuildRequires : binutils
+BuildRequires : bzip2
+BuildRequires : clr-rpm-config
+BuildRequires : coreutils
+BuildRequires : diffutils
+BuildRequires : gawk
+BuildRequires : gcc
+BuildRequires : gcc-dev
+BuildRequires : gettext
+BuildRequires : gettext-bin
+BuildRequires : git
+BuildRequires : glibc-utils
+BuildRequires : grep
+BuildRequires : gzip
+BuildRequires : hostname
+BuildRequires : libc6-dev
+BuildRequires : libc6-locale
+BuildRequires : libtool
+BuildRequires : libtool-dev
+BuildRequires : linux-libc-headers
+BuildRequires : make
+BuildRequires : netbase
+BuildRequires : nss-altfiles
+BuildRequires : patch
+BuildRequires : pigz
+BuildRequires : pkg-config
+BuildRequires : pkg-config-dev
+BuildRequires : rpm-build
+BuildRequires : sed
+BuildRequires : shadow
+BuildRequires : strace
+BuildRequires : systemd-libs
+BuildRequires : tar
+BuildRequires : unzip
+BuildRequires : which
+BuildRequires : xz
 
 %description
 Base files for the system.
