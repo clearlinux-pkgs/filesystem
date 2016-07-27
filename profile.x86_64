@@ -23,6 +23,15 @@ CXXFLAGS="$CFLAGS"
 export GOMP_SPINCOUNT=10000
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
+export LA_VERSION="OpenBLAS"
+export LA_LIBS=/usr/lib64/libopenblas.so.0
+export LA_INCLUDE=/usr/include
+export LA_PATH=/usr/lib64/
+export MPI_CC=/usr/bin/mpicc
+export MPI_LIBS=/usr/lib64/libmpich.so
+export MPI_INCLUDE=/usr/include/
+export MPI_PATH=/usr/lib64/
+export MPI_VERSION=3.2
 
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
