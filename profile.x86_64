@@ -32,7 +32,7 @@ export MPI_LIBS=/usr/lib64/libmpich.so
 export MPI_INCLUDE=/usr/include/
 export MPI_PATH=/usr/lib64/
 export MPI_VERSION=3.2
-
+export THEANO_FLAGS='floatX=float32,openmp=true,gcc.cxxflags="-ftree-vectorize -mavx"'
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
   for i in /usr/share/defaults/etc/profile.d/* ; do
