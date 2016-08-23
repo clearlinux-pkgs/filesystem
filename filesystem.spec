@@ -16,6 +16,7 @@ Source7:        50-colors.sh
 Source8:        inputrc
 Source9:        profile.i386
 Source10:       shells
+Source11:       locale.conf
 Provides: /bin/bash
 Provides: /bin/sh
 Provides: /bin/zsh
@@ -118,6 +119,9 @@ install -m 0644 %{SOURCE8} %{buildroot}/usr/share/defaults/etc/inputrc
 
 # required for chsh/pam
 install -m 00644 %{SOURCE10} %{buildroot}/usr/share/defaults/etc/shells
+
+# set default locale
+install -m 0644 %{SOURCE11} %{buildroot}/usr/share/defaults/etc/locale.conf
 
 %post chroot
 # This is mostly mock-chroot support

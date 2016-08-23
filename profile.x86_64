@@ -50,9 +50,10 @@ fi
 if [ -e /etc/profile ]; then
     . /etc/profile
 fi
-for langfile in /etc/locale.conf "$HOME/.i18n" ; do
+for langfile in /usr/share/defaults/etc/locale.conf /etc/locale.conf "$HOME/.i18n" ; do
 	[ -f $langfile ] && . $langfile 
 done
+export LANG LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
 
 XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
 export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS CFFLAGS FFLAGS XDG_CONFIG_DIRS
