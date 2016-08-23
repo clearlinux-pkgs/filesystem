@@ -94,30 +94,30 @@ while read T P A U G D L; do \
 done < %{buildroot}/usr/lib/tmpfiles.d/filesystem.conf
 
 # See coreutils %post, host yum puts a pid file there.
-rm -f %{buildroot}%{_localstatedir}/run
+rm -f %{buildroot}/var/run
 
 mkdir -p %{buildroot}/usr/share/defaults/etc
-install -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/defaults/etc/nsswitch.conf
+install -m 0644 %{SOURCE1} %{buildroot}/usr/share/defaults/etc/nsswitch.conf
 %ifarch i386
-install -m 0644 %{SOURCE9} %{buildroot}%{_datadir}/defaults/etc/profile
+install -m 0644 %{SOURCE9} %{buildroot}/usr/share/defaults/etc/profile
 ln -s /usr/lib64/ld-2.22.so %{buildroot}/usr/lib/ld-linux.so.2
 %else
-install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/defaults/etc/profile
+install -m 0644 %{SOURCE2} %{buildroot}/usr/share/defaults/etc/profile
 %endif
-install -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/defaults/skel/.bashrc
-install -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/defaults/etc/bash.bashrc
-install -m 0644 %{SOURCE4} %{buildroot}%{_datadir}/defaults/skel/.profile
+install -m 0644 %{SOURCE3} %{buildroot}/usr/share/defaults/skel/.bashrc
+install -m 0644 %{SOURCE3} %{buildroot}/usr/share/defaults/etc/bash.bashrc
+install -m 0644 %{SOURCE4} %{buildroot}/usr/share/defaults/skel/.profile
 # os-release
-install -m 644 %{SOURCE5} %{buildroot}%{_prefix}/lib
+install -m 644 %{SOURCE5} %{buildroot}/usr/lib
 
-install -m 644 -D %{SOURCE6} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-prompt.sh
-install -m 644 -D %{SOURCE7} %{buildroot}%{_datadir}/defaults/etc/profile.d/50-colors.sh
+install -m 644 -D %{SOURCE6} %{buildroot}/usr/share/defaults/etc/profile.d/50-prompt.sh
+install -m 644 -D %{SOURCE7} %{buildroot}/usr/share/defaults/etc/profile.d/50-colors.sh
 
 # inputrc
-install -m 0644 %{SOURCE8} %{buildroot}%{_datadir}/defaults/etc/inputrc
+install -m 0644 %{SOURCE8} %{buildroot}/usr/share/defaults/etc/inputrc
 
 # required for chsh/pam
-install -m 00644 %{SOURCE10} %{buildroot}%{_datadir}/defaults/etc/shells
+install -m 00644 %{SOURCE10} %{buildroot}/usr/share/defaults/etc/shells
 
 %post chroot
 # This is mostly mock-chroot support
@@ -132,7 +132,7 @@ fi
 %files
 %dir /boot
 %dir /dev
-%dir %{_sysconfdir}
+%dir /etc
 %dir /mnt
 %dir /home
 %dir /proc
@@ -142,22 +142,22 @@ fi
 %dir /srv
 %dir %attr(1777, root, root) /tmp
 %dir /usr
-%dir %{_prefix}/bin
-%dir %{_prefix}/include
-%dir %{_prefix}/lib64
-%dir %{_prefix}/lib
-%dir %{_prefix}/lib/debug
-%dir %{_prefix}/share
-%dir %{_prefix}/src
-%dir %{_prefix}/src/debug
-%dir %{_datadir}/info
-%dir %{_datadir}/man
-%dir %{_localstatedir}
-%dir %attr(1777, root, root) %{_localstatedir}/tmp
-%dir %{_localstatedir}/lib
-%dir %{_localstatedir}/log
-%dir %{_localstatedir}/cache
-%dir %{_localstatedir}/spool
+%dir /usr/bin
+%dir /usr/include
+%dir /usr/lib64
+%dir /usr/lib
+%dir /usr/lib/debug
+%dir /usr/share
+%dir /usr/src
+%dir /usr/src/debug
+%dir /usr/share/info
+%dir /usr/share/man
+%dir /var
+%dir %attr(1777, root, root) /var/tmp
+%dir /var/lib
+%dir /var/log
+%dir /var/cache
+%dir /var/spool
 
 %dir /media
 # symlinks...
@@ -165,13 +165,13 @@ fi
 /lib64
 /lib
 /sbin
-%{_prefix}/sbin
+/usr/sbin
 #/usr/bin/sh
 
-%{_localstatedir}/lock
-%{_prefix}/lib/os-release
-%{_prefix}/lib/tmpfiles.d/filesystem.conf
-%{_datadir}/defaults
+/var/lock
+/usr/lib/os-release
+/usr/lib/tmpfiles.d/filesystem.conf
+/usr/share/defaults
 %ifarch i386
 /usr/lib/ld-linux.so.2
 %endif
