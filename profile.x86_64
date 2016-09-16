@@ -22,6 +22,7 @@ CFFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURC
 CXXFLAGS="$CFLAGS"
 export GOMP_SPINCOUNT=1000
 export AR=gcc-ar
+export CXX=g++
 export RANLIB=gcc-ranlib
 export LA_VERSION="OpenBLAS"
 export LA_LIBS=/usr/lib64/libopenblas.so.0
