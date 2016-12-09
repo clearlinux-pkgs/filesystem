@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        126
+Release:        127
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -150,6 +150,7 @@ fi
 %dir /usr/include
 %dir /usr/lib64
 %dir /usr/lib
+%dir /usr/lib32
 %dir /usr/lib/debug
 %dir /usr/share
 %dir /usr/src
