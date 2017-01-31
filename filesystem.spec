@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        134
+Release:        135
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -125,6 +125,8 @@ install -m 00644 %{SOURCE10} %{buildroot}/usr/share/defaults/etc/shells
 install -m 0644 %{SOURCE11} %{buildroot}/usr/share/defaults/etc/locale.conf
 
 install -m 0744 %{SOURCE12} %{buildroot}/usr/bin/prime-debuginfo.sh
+chmod a+x  %{buildroot}/usr/bin/prime-debuginfo.sh
+
 
 
 %post chroot
