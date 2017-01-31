@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        133
+Release:        134
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -17,6 +17,7 @@ Source8:        inputrc
 Source9:        profile.i386
 Source10:       shells
 Source11:       locale.conf
+Source12:	prime-debuginfo.sh
 Provides: /bin/bash
 Provides: /bin/sh
 Provides: /bin/zsh
@@ -123,6 +124,9 @@ install -m 00644 %{SOURCE10} %{buildroot}/usr/share/defaults/etc/shells
 # set default locale
 install -m 0644 %{SOURCE11} %{buildroot}/usr/share/defaults/etc/locale.conf
 
+install -m 0744 %{SOURCE12} %{buildroot}/usr/bin/prime-debuginfo.sh
+
+
 %post chroot
 # This is mostly mock-chroot support
 # Ideally mock should be setting this up
@@ -182,3 +186,4 @@ fi
 %ifarch i386
 /usr/lib/ld-linux.so.2
 %endif
+/usr/bin/prime-debuginfo.sh
