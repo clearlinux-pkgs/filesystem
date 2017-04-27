@@ -92,7 +92,7 @@ install -m 0644 %{SOURCE0} %{buildroot}/usr/lib/tmpfiles.d/filesystem.conf
 while read T P A U G D L; do \
 	[[ $T == "v" ]] && mkdir -p %{buildroot}$P; \
 	[[ $T == "d" ]] && mkdir -p %{buildroot}$P; \
-	[[ $T == "L" ]] && ln -sf $L %{buildroot}$P; \
+	[[ $T == "L+" ]] && ln -sf $L %{buildroot}$P; \
 done < %{buildroot}/usr/lib/tmpfiles.d/filesystem.conf
 
 # See coreutils %post, host yum puts a pid file there.
