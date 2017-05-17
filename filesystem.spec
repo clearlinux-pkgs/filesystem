@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        145
+Release:        146
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -95,9 +95,6 @@ while read T P A U G D L; do \
 	[[ $T == "L+" ]] && ln -sf $L %{buildroot}$P; \
 done < %{buildroot}/usr/lib/tmpfiles.d/filesystem.conf
 
-# See coreutils %post, host yum puts a pid file there.
-rm -f %{buildroot}/var/run
-
 mkdir -p %{buildroot}/usr/share/defaults/etc
 install -m 0644 %{SOURCE1} %{buildroot}/usr/share/defaults/etc/nsswitch.conf
 %ifarch i386
@@ -179,9 +176,8 @@ fi
 /lib
 /sbin
 /usr/sbin
-#/usr/bin/sh
-
 /var/lock
+/var/run
 /usr/lib/os-release
 /usr/lib/tmpfiles.d/filesystem.conf
 /usr/share/defaults
