@@ -20,14 +20,13 @@ if [ "$PS1" ]; then
    PS1='\u@\h:\w\$ '
 fi
 
-CFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -m64  -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi -fno-semantic-interposition -ftree-vectorize -ftree-loop-vectorize "
+CFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -m64  -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -fno-semantic-interposition -ffat-lto-objects "
 FFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wl,--copy-dt-needed-entries -m64 -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi -fno-semantic-interposition -ftree-vectorize  -ftree-loop-vectorize "
 CFFLAGS="-g -O3 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wl,--copy-dt-needed-entries -m64  -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi -fno-semantic-interposition -ftree-vectorize  -ftree-loop-vectorize "
 CXXFLAGS="$CFLAGS -fvisibility-inlines-hidden "
-export GOMP_SPINCOUNT=1000
 export AR=gcc-ar
-export CXX=g++
 export RANLIB=gcc-ranlib
+export NM=gcc-nm
 export LA_VERSION="OpenBLAS"
 export LA_LIBS=/usr/lib64/libopenblas.so.0
 export LA_INCLUDE=/usr/include
@@ -39,6 +38,7 @@ export MPI_PATH=/usr/lib64/
 export MPI_VERSION=3.2
 export THEANO_FLAGS='floatX=float32,openmp=true,gcc.cxxflags="-ftree-vectorize -mavx"'
 export CC=gcc
+export CXX=g++
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
   for i in /usr/share/defaults/etc/profile.d/* ; do
