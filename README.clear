@@ -1,0 +1,8 @@
+When either the NAME or the PRETTY_NAME of the
+operating system changes, as defined in the
+os-release file, the following will be impacted:
+- Ansible fails to recongize the operating system
+  and Ceph deployments fail
+- WALinuxAgent for Azure fails to recognize the
+  operating system and integration in the
+  Microsoft cloud fails
