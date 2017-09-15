@@ -144,10 +144,10 @@ fi
 %dir /etc
 %dir /mnt
 %dir /home
-%dir /proc
+%dir %attr(0555, root, root) /proc
 %dir %attr(0700, root, root) /root
 %dir /run
-%dir /sys
+%dir %attr(0555, root, root) /sys
 %dir /srv
 %dir %attr(1777, root, root) /tmp
 %dir /usr
