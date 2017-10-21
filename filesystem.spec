@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        158
+Release:        159
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -144,6 +144,7 @@ fi
 %dir /etc
 %dir /mnt
 %dir /home
+%dir /autofs
 %dir %attr(0555, root, root) /proc
 %dir %attr(0700, root, root) /root
 %dir /run
