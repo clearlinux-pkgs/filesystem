@@ -23,6 +23,7 @@ Provides: /bin/bash
 Provides: /bin/sh
 Provides: /bin/zsh
 Provides: /bin/ksh
+Provides: /bin/csh
 BuildRequires: /usr/bin/systemd-tmpfiles
 
 
