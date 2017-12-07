@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        165
+Release:        166
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -12,7 +12,6 @@ Source3:        dot.bashrc
 Source4:        dot.profile
 Source5:        os-release
 Source6:        50-prompt.sh
-Source7:        50-colors.sh
 Source8:        inputrc
 Source9:        profile.i386
 Source10:       shells
@@ -111,7 +110,6 @@ install -m 0644 %{SOURCE4} %{buildroot}/usr/share/defaults/skel/.profile
 install -m 644 %{SOURCE5} %{buildroot}/usr/lib
 
 install -m 644 -D %{SOURCE6} %{buildroot}/usr/share/defaults/etc/profile.d/50-prompt.sh
-install -m 644 -D %{SOURCE7} %{buildroot}/usr/share/defaults/etc/profile.d/50-colors.sh
 
 # inputrc
 install -m 0644 %{SOURCE8} %{buildroot}/usr/share/defaults/etc/inputrc
