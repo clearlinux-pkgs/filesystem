@@ -40,7 +40,6 @@ export MPI_VERSION=3.2
 export THEANO_FLAGS='floatX=float32,openmp=true,gcc.cxxflags="-ftree-vectorize -mavx"'
 export CC=gcc
 export CXX=g++
-export LC_CTYPE=C.UTF-8
 export PYTHONIOENCODING=utf-8:surrogateescape
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
