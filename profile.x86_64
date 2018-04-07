@@ -41,6 +41,7 @@ export THEANO_FLAGS='floatX=float32,openmp=true,gcc.cxxflags="-ftree-vectorize -
 export CC=gcc
 export CXX=g++
 export PYTHONIOENCODING=utf-8:surrogateescape
+export MESA_GLSL_CACHE_DISABLE=0
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
   for i in /usr/share/defaults/etc/profile.d/* ; do
