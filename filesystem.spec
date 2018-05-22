@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        174
+Release:        175
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -62,7 +62,7 @@ BuildRequires : rpm-build
 BuildRequires : sed
 BuildRequires : shadow
 BuildRequires : strace
-BuildRequires : systemd-libs
+BuildRequires : systemd-lib
 BuildRequires : tar
 BuildRequires : unzip
 BuildRequires : which
