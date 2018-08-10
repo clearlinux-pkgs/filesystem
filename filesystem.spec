@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        175
+Release:        176
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -22,6 +22,8 @@ Provides: /bin/sh
 Provides: /bin/zsh
 Provides: /bin/ksh
 Provides: /bin/csh
+Provides: /usr/bin/lsb_release
+Provides: /usr/sbin/update-alternatives
 BuildRequires: /usr/bin/systemd-tmpfiles
 
 
