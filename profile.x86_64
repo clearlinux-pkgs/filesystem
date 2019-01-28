@@ -1,7 +1,7 @@
 # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
 
-PATH="/usr/local/bin:/usr/bin:/var/lib/3rd-party/bin"
+PATH="/usr/local/bin:/usr/bin:/opt/3rd-party/bin"
 cat /proc/cpuinfo  | grep flags | grep avx2 | grep -q  fma && PATH="/usr/bin/haswell:$PATH"
 if [[ -x "/bin/vi" ]]; then 
 	EDITOR="/usr/bin/vi"			# needed for packages like cron
