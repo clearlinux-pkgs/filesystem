@@ -2,9 +2,9 @@
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
 
 PATH="/usr/bin"
-if grep "flags.*:.* avx512bw" /proc/cpuinfo; then
+if grep -q "flags.*:.* avx512bw" /proc/cpuinfo; then
 	PATH="/usr/bin/haswell/avx512_1:/usr/bin/haswell:/usr/bin"
-elif grep "flags.*:.* fma .* avx2" /proc/cpuinfo; then
+elif grep -q "flags.*:.* fma .* avx2" /proc/cpuinfo; then
 	PATH="/usr/bin/haswell:/usr/bin"
 fi
 PATH="/usr/local/bin:$PATH:/opt/3rdparty/bin"
