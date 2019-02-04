@@ -7,7 +7,7 @@ if grep -q "flags.*:.* avx512bw" /proc/cpuinfo; then
 elif grep -q "flags.*:.* fma .* avx2" /proc/cpuinfo; then
 	PATH="/usr/bin/haswell:/usr/bin"
 fi
-PATH="/usr/local/bin:$PATH:/opt/3rdparty/bin"
+PATH="/usr/local/bin:$PATH:/opt/3rd-party/bin"
 
 if [[ -x "/bin/vi" ]]; then 
 	EDITOR="/usr/bin/vi"			# needed for packages like cron
