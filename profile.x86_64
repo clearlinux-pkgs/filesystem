@@ -48,6 +48,7 @@ export CC=gcc
 export CXX=g++
 export PYTHONIOENCODING=utf-8:surrogateescape
 export MESA_GLSL_CACHE_DISABLE=0
+export GTK_IM_MODULE="ibus"
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
   for i in /usr/share/defaults/etc/profile.d/* ; do
