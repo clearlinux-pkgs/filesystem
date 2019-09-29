@@ -122,7 +122,7 @@ install -m 00644 %{SOURCE10} %{buildroot}/usr/share/defaults/etc/shells
 # set default locale
 install -m 0644 %{SOURCE11} %{buildroot}/usr/share/defaults/etc/locale.conf
 
-install -m 0755 %{SOURCE12} %{buildroot}/usr/share/defaults/etc/hosts
+install -m 0644 %{SOURCE12} %{buildroot}/usr/share/defaults/etc/hosts
 
 # work around our machinery for /usr/lib/debug
 mkdir -p %{buildroot}/usr/lib/debug.force
