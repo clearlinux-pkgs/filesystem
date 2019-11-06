@@ -21,7 +21,7 @@ if [ -n "$PS1" ]; then # Only for interactive shells
   tty_rows=$(stty size | cut -d' ' -f1)
   tty_columns=$(stty size | cut -d' ' -f2)
   if [ $((${tty_rows} + 0)) -le 0 -o $((${tty_columns} + 0)) -le 0 ]; then
-    setterm --resize
+    [ -x /usr/bin/setterm ] &&  setterm --resize
     # fail safe if size still not set
     tty_rows=$(stty size | cut -d' ' -f1)
     tty_columns=$(stty size | cut -d' ' -f2)
