@@ -60,7 +60,6 @@ BuildRequires : patch
 BuildRequires : pigz
 BuildRequires : pkg-config
 BuildRequires : pkg-config-dev
-BuildRequires : rpm-build
 BuildRequires : sed
 BuildRequires : shadow
 BuildRequires : strace
