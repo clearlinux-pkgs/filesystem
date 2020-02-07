@@ -17,7 +17,7 @@ fi
 test -z "$TERM" && TERM="xterm"	# Basic terminal capab. For screen etc.
 
 # Ensure the interactive terminal has rows and columns
-if [ -n "$PS1" ]; then # Only for interactive shells
+if [ -n "$PS1" ] && tty > /dev/null; then # Only for interactive shells
   tty_rows=$(stty size | cut -d' ' -f1)
   tty_columns=$(stty size | cut -d' ' -f2)
   if [ $((${tty_rows} + 0)) -le 0 -o $((${tty_columns} + 0)) -le 0 ]; then
