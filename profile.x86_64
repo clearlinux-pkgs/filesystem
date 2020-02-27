@@ -1,15 +1,44 @@
 # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
 
-PATH="/usr/bin"
-if grep -q "flags.*:.* avx512bw" /proc/cpuinfo; then
-	PATH="/usr/bin/haswell/avx512_1:/usr/bin/haswell:/usr/bin"
-elif grep -q "flags.*:.* fma .* avx2" /proc/cpuinfo; then
-	PATH="/usr/bin/haswell:/usr/bin"
-fi
-PATH="/usr/local/bin:$PATH:/opt/3rd-party/bin"
+# Add /usr/bin, the avx2/avx512 bin paths and 3rd-party bin path to PATH as needed
+# Then cleanup symlink paths
+case ":${PATH:-}:" in
+        *:/usr/bin:*) ;;
+        *) PATH="/usr/bin${PATH:+:$PATH}" ;;
+esac
 
-if [[ -x "/bin/vi" ]]; then 
+if grep -q "flags.*:.* avx512bw" /proc/cpuinfo; then
+        case ":${PATH:-}:" in
+               *:/usr/bin/haswell/avx512_1:*) ;;
+               *) PATH="/usr/bin/haswell/avx512_1:/usr/bin/haswell:$PATH" ;;
+        esac
+elif grep -q "flags.*:.* fma .* avx2" /proc/cpuinfo; then
+        case ":${PATH:-}:" in
+               *:/usr/bin/haswell:*) ;;
+               *) PATH="/usr/bin/haswell:$PATH" ;;
+        esac
+fi
+case ":${PATH:-}:" in
+        *:/usr/local/bin:*) ;;
+        *) PATH="/usr/local/bin:$PATH" ;;
+esac
+case ":${PATH:-}:" in
+        *:/opt/3rd-party/bin:*) ;;
+        *) PATH="$PATH:/opt/3rd-party/bin" ;;
+esac
+# Remove from beginning/end/middle of PATH
+PATH="${PATH/#\/bin:}"
+PATH="${PATH/%:\/bin}"
+PATH="${PATH/:\/bin:/:}"
+PATH="${PATH/#\/sbin:}"
+PATH="${PATH/%:\/sbin}"
+PATH="${PATH/:\/sbin:/:}"
+PATH="${PATH/#\/usr\/sbin:}"
+PATH="${PATH/%:\/usr\/sbin}"
+PATH="${PATH/:\/usr\/sbin:/:}"
+
+if [[ -x "/bin/vi" ]]; then
 	EDITOR="/usr/bin/vi"			# needed for packages like cron
 else
 	EDITOR="/usr/bin/nano"			# needed for packages like cron
