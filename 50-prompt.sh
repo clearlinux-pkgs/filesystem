@@ -1,5 +1,8 @@
 # Set prompt and title (for interactive shells only)
 if [ "$(expr $- : '.*i')" -ne 0 ]; then
+  if [ -e /usr/share/git-core/git-prompt.sh ]; then
+  	. /usr/share/git-core/git-prompt.sh 
+  fi
 
   # this works for sh and bash
   if [ -z "$ZSH_VERSION" ]; then
@@ -27,6 +30,7 @@ if [ "$(expr $- : '.*i')" -ne 0 ]; then
           endchar=\"\${RED}\$endchar\"
       fi ; "
       # hostname in orange
+      
       PS1+="\
       host=\"\${ORANGE}\H\${WHITE}\" ; "
       # current directory in blue(39)
@@ -34,7 +38,11 @@ if [ "$(expr $- : '.*i')" -ne 0 ]; then
       dir=\"\${BLUE}\w\${WHITE}\" ; "
       # set prompt, and additionally set window title for xterm
       if [ "${TERM:0:5}" = "xterm" ]; then
-          PS1+="echo \"\[\e]2;\u@\H :: \w\a\]\${username}@\${host}\${dir} \${endchar} \" )"
+          if [ -e /usr/share/git-core/git-prompt.sh ]; then
+	          PS1+="echo \"\[\e]2;\u@\H :: \w\a\]\${username}@\${host}\${dir}\$(__git_ps1) \${endchar} \" )"
+	  else
+	          PS1+="echo \"\[\e]2;\u@\H :: \w\a\]\${username}@\${host}\${dir} \${endchar} \" )"
+          fi
       else
           PS1+="echo \"\${username}@\${host} \${dir} \${endchar} \" )"
       fi
