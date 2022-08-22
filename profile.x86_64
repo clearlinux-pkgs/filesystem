@@ -102,6 +102,9 @@ if [ -d /usr/share/defaults/etc/profile.d ]; then
   done
   unset i
 fi
+
+XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
+
 if [ -d /etc/profile.d ]; then
   for i in /etc/profile.d/* ; do
     . $i
@@ -116,8 +119,6 @@ for langfile in /usr/share/defaults/etc/locale.conf /etc/locale.conf "$HOME/.i18
 done
 export LANG LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
 
-XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
 export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS FCFLAGS FFLAGS XDG_CONFIG_DIRS
 
 umask 022
-
