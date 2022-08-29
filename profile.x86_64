@@ -104,6 +104,7 @@ if [ -d /usr/share/defaults/etc/profile.d ]; then
 fi
 
 XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
+XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share":/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/cache
 
 if [ -d /etc/profile.d ]; then
   for i in /etc/profile.d/* ; do
