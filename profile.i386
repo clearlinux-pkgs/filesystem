@@ -32,7 +32,7 @@ if [ -z "$PS1" ]; then
    PS1='\u@\h:\w\$ '
 fi
 
-CFLAGS="-Os -g2 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -m32 -march=i586  -mtune=i486 -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z -Wl,now -Wl,-z -Wl,relro -malign-data=abi"
+CFLAGS="-Os -g2 -feliminate-unused-debug-types  -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wl,--copy-dt-needed-entries -m32 -march=i586  -mtune=i486 -fasynchronous-unwind-tables -Wp,-D_REENTRANT -ftree-loop-distribute-patterns -Wl,-z,now -Wl,-z,relro -malign-data=abi"
 CXXFLAGS="$CFLAGS"
 if [ -d /usr/share/defaults/etc/profile.d ]; then
   for i in /usr/share/defaults/etc/profile.d/* ; do
