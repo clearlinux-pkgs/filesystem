@@ -1,5 +1,6 @@
 # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+me=${BASH_SOURCE[0]//\//_}; me=${me//./_}; if [[ ${SOURCED[${me}]} == "yes" ]]; then return; else declare -A SOURCED; SOURCED[${me}]=yes; fi # Only load once
 
 PATH="/usr/local/bin:/usr/bin"
 EDITOR="/usr/bin/nano"			# needed for packages like cron
@@ -48,6 +49,9 @@ if [ -d /etc/profile.d ]; then
     . $i
   done
   unset i
+fi
+if [ -e /etc/profile ]; then
+    . /etc/profile
 fi
 export PATH PS1 EDITOR TERM CFLAGS CXXFLAGS XDG_CONFIG_DIRS
 

@@ -1,5 +1,6 @@
 # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+me=${BASH_SOURCE[0]//\//_}; me=${me//./_}; if [[ ${SOURCED[${me}]} == "yes" ]]; then return; else declare -A SOURCED; SOURCED[${me}]=yes; fi # Only load once
 
 # Add /usr/bin, the avx2/avx512 bin paths and 3rd-party bin path to PATH as needed
 # Then cleanup symlink paths
