@@ -198,7 +198,9 @@ fi
 /usr/lib/os-release
 /usr/lib/tmpfiles.d/filesystem.conf
 /usr/share/defaults
-%dir /usr/share/locale
+%dir /usr/share/locale/*
+%dir /usr/share/locale/*/*
+
 %ifarch i386
 /usr/lib/ld-linux.so.2
 %endif
