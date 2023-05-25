@@ -147,6 +147,7 @@ mkdir -p %{buildroot}/usr/share/gir-1.0
 mkdir -p %{buildroot}/usr/share/icons/hicolor
 mkdir -p %{buildroot}/usr/share/pixmaps
 mkdir -p %{buildroot}/usr/share/icons/hicolor/512x512/apps
+mkdir -p %{buildroot}/usr/lib64/pkgconfig
 
 
 for i in `cat %{SOURCE13}`; do mkdir -p %{buildroot}/$i ; done
@@ -205,6 +206,7 @@ fi
 %dir /usr/share/icons/hicolor
 %dir /usr/share/pixmaps
 %dir /usr/share/icons/hicolor/512x512/apps
+%dir /usr/lib64/pkgconfig
 # symlinks...
 /bin
 /lib64
