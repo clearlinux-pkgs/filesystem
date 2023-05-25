@@ -17,6 +17,7 @@ Source9:        profile.i386
 Source10:       shells
 Source11:       locale.conf
 Source12:	hosts
+Source13:	locales
 Provides: /bin/bash
 Provides: /bin/sh
 Provides: /bin/zsh
@@ -132,6 +133,13 @@ mkdir -p %{buildroot}/usr/lib/debug.force
 mkdir -p %{buildroot}/usr/src/debug.force
 
 
+mkdir -p %{buildroot}/usr/include
+mkdir -p %{buildroot}/usr/libexec
+
+for i in `cat %{SOURCE13}`; do mkdir -p %{buildroot}/$i ; done
+
+
+
 %post chroot
 # This is mostly mock-chroot support
 # Ideally mock should be setting this up
@@ -161,6 +169,8 @@ fi
 %dir /usr/lib64
 %dir /usr/lib
 %dir /usr/lib32
+%dir /usr/libexec
+%dir /usr/include
 %dir /usr/lib/debug
 %dir /usr/local
 %dir /usr/local/share
@@ -188,6 +198,7 @@ fi
 /usr/lib/os-release
 /usr/lib/tmpfiles.d/filesystem.conf
 /usr/share/defaults
+%dir /usr/share/locale
 %ifarch i386
 /usr/lib/ld-linux.so.2
 %endif
