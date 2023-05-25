@@ -135,6 +135,19 @@ mkdir -p %{buildroot}/usr/src/debug.force
 
 mkdir -p %{buildroot}/usr/include
 mkdir -p %{buildroot}/usr/libexec
+mkdir -p %{buildroot}/usr/share/man/man8
+mkdir -p %{buildroot}/usr/share/man/man3
+mkdir -p %{buildroot}/usr/share/man/man7
+mkdir -p %{buildroot}/usr/share/man/man1
+mkdir -p %{buildroot}/usr/share/man/man5
+
+mkdir -p %{buildroot}/usr/share/applications 
+mkdir -p %{buildroot}/usr/lib64/girepository-1.0
+mkdir -p %{buildroot}/usr/share/gir-1.0 
+mkdir -p %{buildroot}/usr/share/icons/hicolor
+mkdir -p %{buildroot}/usr/share/pixmaps
+mkdir -p %{buildroot}/usr/share/icons/hicolor/512x512/apps
+
 
 for i in `cat %{SOURCE13}`; do mkdir -p %{buildroot}/$i ; done
 
@@ -170,7 +183,6 @@ fi
 %dir /usr/lib
 %dir /usr/lib32
 %dir /usr/libexec
-%dir /usr/include
 %dir /usr/lib/debug
 %dir /usr/local
 %dir /usr/local/share
@@ -179,14 +191,20 @@ fi
 %dir /usr/src/debug
 %dir /usr/share/info
 %dir /usr/share/man
+%dir /usr/share/man/*
 %dir /var
 %dir %attr(1777, root, root) /var/tmp
 %dir /var/lib
 %dir /var/log
 %dir /var/cache
 %dir /var/spool
-
+%dir /usr/share/applications 
 %dir /media
+%dir /usr/lib64/girepository-1.0 
+%dir /usr/share/gir-1.0 
+%dir /usr/share/icons/hicolor
+%dir /usr/share/pixmaps
+%dir /usr/share/icons/hicolor/512x512/apps
 # symlinks...
 /bin
 /lib64
