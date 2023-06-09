@@ -222,6 +222,8 @@ fi
 %dir /usr/share/locale/*/*
 %dir /usr/share/icons/hicolor/*
 %dir /usr/share/icons/hicolor/*/*
+%dir /usr/lib/systemd/system/*
+%dir /usr/lib/systemd/*
 
 %ifarch i386
 /usr/lib/ld-linux.so.2
