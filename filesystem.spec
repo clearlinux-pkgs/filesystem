@@ -220,6 +220,8 @@ fi
 /usr/share/defaults
 %dir /usr/share/locale/*
 %dir /usr/share/locale/*/*
+%dir /usr/share/icons/hicolor/*
+%dir /usr/share/icons/hicolor/*/*
 
 %ifarch i386
 /usr/lib/ld-linux.so.2
