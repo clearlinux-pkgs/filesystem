@@ -93,7 +93,6 @@ export THEANO_FLAGS='floatX=float32,openmp=true,gcc.cxxflags="-ftree-vectorize -
 export CC=gcc
 export CXX=g++
 export PYTHONIOENCODING=utf-8:surrogateescape
-export MESA_GLSL_CACHE_DISABLE=0
 export GTK_IM_MODULE="ibus"
 export JAVA_INCLUDE_PATH=/usr/lib/jvm/java-1.19.0/include
 
