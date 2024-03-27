@@ -134,6 +134,7 @@ mkdir -p %{buildroot}/usr/src/debug.force
 
 
 mkdir -p %{buildroot}/usr/include
+mkdir -p %{buildroot}/root
 mkdir -p %{buildroot}/usr/libexec
 mkdir -p %{buildroot}/usr/share/man/man8
 mkdir -p %{buildroot}/usr/share/man/man3
@@ -206,6 +207,7 @@ fi
 %dir /usr/share/pixmaps
 %dir /usr/share/icons/hicolor/512x512/apps
 %dir /usr/lib64/pkgconfig
+%dir /root
 # symlinks...
 /bin
 /lib64
