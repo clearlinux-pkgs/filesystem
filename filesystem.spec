@@ -207,7 +207,7 @@ fi
 %dir /usr/share/pixmaps
 %dir /usr/share/icons/hicolor/512x512/apps
 %dir /usr/lib64/pkgconfig
-%dir /root
+%dir %attr(0700, root, root) /root
 # symlinks...
 /bin
 /lib64
