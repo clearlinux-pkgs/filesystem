@@ -149,6 +149,10 @@ mkdir -p %{buildroot}/usr/share/icons/hicolor
 mkdir -p %{buildroot}/usr/share/pixmaps
 mkdir -p %{buildroot}/usr/share/icons/hicolor/512x512/apps
 mkdir -p %{buildroot}/usr/lib64/pkgconfig
+mkdir -p %{buildroot}/usr/lib/modules
+mkdir -p %{buildroot}/usr/lib/kernel
+
+
 
 
 for i in `cat %{SOURCE13}`; do mkdir -p %{buildroot}/$i ; done
@@ -192,7 +196,9 @@ fi
 %dir /usr/src/debug
 %dir /usr/share/info
 %dir /usr/share/man
-%dir /usr/share/man/*
+%dir /usr/share/man/
+%dir /usr/lib/modules
+%dir /usr/lib/kernel
 %dir /var
 %dir %attr(1777, root, root) /var/tmp
 %dir /var/lib
