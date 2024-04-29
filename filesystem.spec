@@ -196,7 +196,7 @@ fi
 %dir /usr/src/debug
 %dir /usr/share/info
 %dir /usr/share/man
-%dir /usr/share/man/
+%dir /usr/share/man/*
 %dir /usr/lib/modules
 %dir /usr/lib/kernel
 %dir /var
