@@ -1,6 +1,6 @@
 Name:           filesystem
 Version:        3.0.14
-Release:        244
+Release:        245
 License:        GPL-2.0
 Summary:        Base files for the system
 Url:            https://01.org/
@@ -65,6 +65,7 @@ BuildRequires : patch
 BuildRequires : pigz
 BuildRequires : pkg-config
 BuildRequires : pkg-config-dev
+BuildRequires : plzip
 BuildRequires : sed
 BuildRequires : shadow
 BuildRequires : strace
