@@ -97,6 +97,7 @@ export GTK_IM_MODULE="ibus"
 export JAVA_INCLUDE_PATH=/usr/lib/jvm/java-1.19.0/include
 export QTWEBENGINE_DISABLE_SANDBOX=1
 export LD_ORDERING_SCRIPT_MAP=/usr/share/clear/optimized-link-scripts/clear_ordering_map.ld
+export RUSTICL_ENABLE=iris
 
 if [ -d /usr/share/defaults/etc/profile.d ]; then
   for i in /usr/share/defaults/etc/profile.d/* ; do
